@@ -25,4 +25,11 @@ jobs:
           ls -la
 
           echo "Checking OS details..."
-          uname -a
+          uname -a # -------------------------
+      # Stage 2 — Docker build
+      # -------------------------
+      - name: Stage 2 - Build Docker image
+        run: |
+          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/python-gha-lab:latest .
+          docker images
+
